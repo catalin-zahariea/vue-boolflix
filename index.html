@@ -41,7 +41,10 @@
           <div class="flex">
             <div class="search-results">
               <ul class="flex">
-                <li v-for="item in searchOutput">
+                <li
+                  v-for="item in searchOutput"
+                  v-if="searchOutput.length >= 1"
+                >
                   <div>{{item.title}}</div>
                   <div>{{item.original_title}}</div>
                   <div>{{item.original_language}}</div>
