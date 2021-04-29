@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolfix</title>
+
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Link Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- Link Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- Vue.js -->
+    <div id="root">
+      <!-- Header -->
+      <header>
+        <div class="container">
+          <div class="flex">
+            <div class="header-logo">Boolfix</div>
+            <div>
+              <button @click="search">Search</button>
+              <span>
+                <label for="header-search"></label>
+                <input id="header-search" type="text" v-model="searchInput" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Main -->
+      <main>
+        <div class="container">
+          <div class="flex">
+            <div class="search-results">
+              <ul class="flex">
+                <li v-for="item in searchOutput">
+                  <div>{{item.title}}</div>
+                  <div>{{item.original_title}}</div>
+                  <div>{{item.original_language}}</div>
+                  <div>{{item.vote_average}}</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- End Main -->
+    </div>
+    <!-- End Vue.js -->
+
+    <!-- Link Custom JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
