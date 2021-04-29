@@ -23,7 +23,7 @@
         <div class="container">
           <div class="flex">
             <div class="header-logo">Boolfix</div>
-            <div>
+            <div class="header-search-function">
               <button @click="search">Search</button>
               <span>
                 <label for="header-search"></label>
@@ -45,10 +45,12 @@
                   v-for="item in searchOutput"
                   v-if="searchOutput.length >= 1"
                 >
-                  <div>{{item.title}}</div>
-                  <div>{{item.original_title}}</div>
-                  <div>{{item.original_language}}</div>
-                  <div>{{item.vote_average}}</div>
+                  <div class="search-item">
+                    <div>{{item.title}}</div>
+                    <div>{{item.original_title}}</div>
+                    <div>{{item.original_language}}</div>
+                    <div>{{item.vote_average}}</div>
+                  </div>
                 </li>
               </ul>
             </div>

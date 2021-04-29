@@ -19,9 +19,28 @@ ul {
 /* COMMON */
 
 body {
+  /* Shape */
+  height: 100vh;
   /* Font */
   font-family: sans-serif;
   font-weight: 300;
+  /* Color */
+  background-color: darkgray;
+}
+
+header {
+  /* Shape */
+  height: 70px;
+  /* Color */
+  background-color: black;
+}
+
+main {
+  /* Shape */
+  height: calc(100vh - 70px);
+  padding: 25px 0;
+  /* Overflow */
+  overflow-y: auto;
 }
 
 .container {
@@ -44,22 +63,38 @@ body {
 /* --------------------------- */
 /* HEADER */
 
-header {
-  /* Shape */
-  height: 70px;
-  /* Color */
-  background-color: black;
-}
-
 .header-logo {
   /* Color */
   color: white;
   /* Font */
   text-transform: uppercase;
 }
+.header-search-function button,
+#header-search {
+  /* Shape */
+  padding: 5px 10px;
+  /* Style */
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid white;
+  /* Color */
+  background-color: black;
+  color: white;
+}
+
+.header-search-function button:active {
+  /* Color */
+  background-color: white;
+  color: black;
+}
 
 /* --------------------------- */
 /* MAIN */
+
+.search-results {
+  /* Shape */
+  height: 100%;
+}
 
 .search-results .flex {
   /* Display */
@@ -70,7 +105,14 @@ header {
 .search-results li {
   /* Shape */
   width: 25%;
-  padding: 20px;
+  padding: 25px;
+}
+
+.search-results .search-item {
+  /* Shape */
+  height: 250px;
+  padding: 25px;
   /* Stlye */
   border: 1px solid black;
+  border-radius: 5px;
 }
