@@ -27,7 +27,12 @@
               <button @click="search">Search</button>
               <span>
                 <label for="header-search"></label>
-                <input id="header-search" type="text" v-model="searchInput" />
+                <input
+                  id="header-search"
+                  type="text"
+                  v-model="searchInput"
+                  @keyup.enter="search"
+                />
               </span>
             </div>
           </div>
@@ -47,7 +52,9 @@
                 >
                   <div class="search-item">
                     <div>{{item.title}}</div>
+                    <div>{{item.name}}</div>
                     <div>{{item.original_title}}</div>
+                    <div>{{item.original_name}}</div>
                     <div>{{item.original_language}}</div>
                     <div>{{item.vote_average}}</div>
                   </div>

@@ -105,7 +105,7 @@ main {
 .search-results li {
   /* Shape */
   width: 25%;
-  padding: 25px;
+  padding: 10px;
 }
 
 .search-results .search-item {
@@ -115,4 +115,7 @@ main {
   /* Stlye */
   border: 1px solid black;
   border-radius: 5px;
+  /* Color */
+  background-color: black;
+  color: white;
 }
