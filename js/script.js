@@ -57,6 +57,8 @@ var app = new Vue({
       }
     },
 
+    searchCast() {},
+
     overviewItemSlice(index) {
       let overviewItemSliced = this.searchOutput[index].overview;
       overviewItemSliced = overviewItemSliced.slice(0, 70);

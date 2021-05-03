@@ -63,9 +63,19 @@
                 <li v-for="(item, index) in searchOutput">
                   <div class="item-cover">
                     <img
+                      v-if="item.poster_path != null"
                       :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path"
                       :alt="item.title"
                     />
+                    <div class="noImage" v-else>
+                      <img
+                        src="img/boolflix_noImage-01-01.jpg"
+                        alt="No Image Available"
+                      />
+                      <div class="noImage-title">
+                        {{item.title || item.name}}
+                      </div>
+                    </div>
                   </div>
                   <ul class="search-item">
                     <li>

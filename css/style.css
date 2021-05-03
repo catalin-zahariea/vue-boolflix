@@ -148,11 +148,27 @@ main {
   height: 100%;
   object-fit: cover;
   position: absolute;
-  transition: all 0.4s;
 }
 
-.search-results li:hover .item-cover img {
-  opacity: 0;
+.search-results .item-cover .noImage img {
+  width: 100%;
+}
+
+.search-results .item-cover .noImage .noImage-title {
+  /* Position */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  /* Font */
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.search-results li:hover .item-cover {
+  display: none;
 }
 
 .search-results .search-item {
