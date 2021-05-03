@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boolfix</title>
+    <title>Boolflix</title>
 
     <!-- Link Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Link Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
 
     <!-- Link Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -22,9 +30,11 @@
       <header>
         <div class="container">
           <div class="flex">
-            <div class="header-logo">Boolfix</div>
+            <div class="header-logo">
+              <img src="img/boolflix_logo.svg" alt="Boolflix Logo" />
+            </div>
             <div class="header-search-function">
-              <button @click="search">Search</button>
+              <button @click="search"><i class="fas fa-search"></i></button>
               <span>
                 <label for="header-search"></label>
                 <input
@@ -32,6 +42,7 @@
                   type="text"
                   v-model="searchInput"
                   @keyup.enter="search"
+                  placeholder="Search.."
                 />
               </span>
             </div>
@@ -44,18 +55,32 @@
       <main>
         <div class="container">
           <div class="flex">
-            <div class="search-results">
+            <div class="search-results" v-if="searchOutput.length > 0">
+              <div class="search-results-counter">
+                {{searchOutput.length}} Risultati trovati
+              </div>
               <ul class="flex">
                 <li
                   v-for="item in searchOutput"
                   v-if="searchOutput.length >= 1"
                 >
+                  <div class="item-cover">
+                    <img
+                      :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path"
+                      :alt="item.title"
+                    />
+                  </div>
                   <div class="search-item">
-                    <div>{{item.title}}</div>
-                    <div>{{item.name}}</div>
+                    <div>Titolo: {{item.title}}</div>
+                    <div>Titolo: {{item.name}}</div>
                     <div>{{item.original_title}}</div>
                     <div>{{item.original_name}}</div>
-                    <div>{{item.original_language}}</div>
+                    <div class="item-language">
+                      <img
+                        :src="'img/16x16/' + item.original_language + '.png'"
+                        :alt="item.original_language"
+                      />
+                    </div>
                     <div>{{item.vote_average}}</div>
                   </div>
                 </li>

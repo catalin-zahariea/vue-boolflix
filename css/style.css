@@ -25,20 +25,24 @@ body {
   font-family: sans-serif;
   font-weight: 300;
   /* Color */
-  background-color: darkgray;
+  background-color: #141414;
 }
 
 header {
   /* Shape */
-  height: 70px;
+  height: 100px;
   /* Color */
-  background-color: black;
+  background-color: #141414;
+  /* Shadow */
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.5);
+  /* Z-Index */
+  z-index: 1;
 }
 
 main {
   /* Shape */
-  height: calc(100vh - 70px);
-  padding: 25px 0;
+  height: calc(100vh - 100px);
+  padding-bottom: 50px;
   /* Overflow */
   overflow-y: auto;
 }
@@ -63,29 +67,47 @@ main {
 /* --------------------------- */
 /* HEADER */
 
-.header-logo {
-  /* Color */
-  color: white;
-  /* Font */
-  text-transform: uppercase;
-}
-.header-search-function button,
-#header-search {
+.header-logo img {
   /* Shape */
-  padding: 5px 10px;
+  height: 40px;
+}
+
+.header-search-function button {
+  /* Shape */
+  padding: 10px;
+  margin-right: 10px;
   /* Style */
   outline: none;
-  border-radius: 5px;
-  border: 1px solid white;
+  border: none;
   /* Color */
-  background-color: black;
-  color: white;
+  background-color: transparent;
+  color: #fff;
+}
+
+#header-search {
+  /* Shape */
+  padding: 10px;
+  /* Style */
+  outline: none;
+  border: none;
+  /* Color */
+  background-color: transparent;
+  color: #fff;
+}
+
+#header-search:focus {
+  background-color: #fff;
+  color: #141414;
+}
+
+#header-search::placeholder {
+  /* Color */
+  color: #fff;
 }
 
 .header-search-function button:active {
   /* Color */
-  background-color: white;
-  color: black;
+  color: #141414;
 }
 
 /* --------------------------- */
@@ -102,20 +124,46 @@ main {
   align-items: stretch;
 }
 
+.search-results .search-results-counter {
+  /* Padding */
+  padding: 20px 0;
+  /* Font */
+  font-size: 16px;
+  font-weight: 500;
+  /* Color */
+  color: #fff;
+}
+
 .search-results li {
   /* Shape */
-  width: 25%;
-  padding: 10px;
+  width: 20%;
+  height: 18em;
+  margin-bottom: 50px;
+  /* Position */
+  position: relative;
+}
+
+.search-results .item-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  transition: all 0.4s;
+}
+
+.search-results li:hover .item-cover img {
+  opacity: 0;
 }
 
 .search-results .search-item {
   /* Shape */
-  height: 250px;
+  height: 100%;
   padding: 25px;
-  /* Stlye */
-  border: 1px solid black;
-  border-radius: 5px;
   /* Color */
-  background-color: black;
+  background-color: #141414;
   color: white;
+}
+
+.search-results .search-item .item-language {
+  width: 16px;
 }
