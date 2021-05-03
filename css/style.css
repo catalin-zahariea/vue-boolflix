@@ -124,7 +124,7 @@ main {
   align-items: stretch;
 }
 
-.search-results .search-results-counter {
+.search-results h2 {
   /* Padding */
   padding: 20px 0;
   /* Font */

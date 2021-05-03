@@ -55,15 +55,12 @@
       <main>
         <div class="container">
           <div class="flex">
-            <div class="search-results" v-if="searchOutput.length > 0">
-              <div class="search-results-counter">
+            <div class="search-results">
+              <h2 v-if="searchOutput.length >= 1">
                 {{searchOutput.length}} Risultati trovati
-              </div>
-              <ul class="flex">
-                <li
-                  v-for="(item, index) in searchOutput"
-                  v-if="searchOutput.length >= 1"
-                >
+              </h2>
+              <ul class="flex" v-if="searchOutput.length >= 1">
+                <li v-for="(item, index) in searchOutput">
                   <div class="item-cover">
                     <img
                       :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path"
@@ -75,7 +72,9 @@
                       <span class="item-info-title">Titolo: </span>{{item.title
                       || item.name}}
                     </li>
-                    <li>
+                    <li
+                      v-if="item.title != item.original_title || item.name != item.original_name"
+                    >
                       <span class="item-info-title">Titolo originale: </span
                       >{{item.original_title || item.original_name}}
                     </li>
@@ -119,6 +118,7 @@
                   </ul>
                 </li>
               </ul>
+              <h2 v-else>{{searchNoResult}}</h2>
             </div>
           </div>
         </div>
