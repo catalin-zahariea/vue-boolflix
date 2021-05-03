@@ -178,5 +178,13 @@ main {
 }
 
 .search-results .search-item .item-language {
+  /* Display */
+  display: flex;
+  /* Shape */
   width: 16px;
+}
+
+.search-results .search-item .item-language img {
+  /* Padding */
+  margin-left: 10px;
 }

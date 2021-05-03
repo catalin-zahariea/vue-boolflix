@@ -40,6 +40,19 @@ var app = new Vue({
       // Resetting searchOutput array if searchInput is empty.
       // ---
     },
+    overviewItemSlice(index) {
+      let overviewItemSliced = this.searchOutput[index].overview;
+      overviewItemSliced = overviewItemSliced.slice(0, 70);
+
+      if (overviewItemSliced.length >= 70) {
+        overviewItemSliced += "..";
+      }
+
+      if (overviewItemSliced.length == 0) {
+        overviewItemSliced = "N/A";
+      }
+      return overviewItemSliced;
+    },
   },
   mounted() {},
 });

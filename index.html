@@ -61,7 +61,7 @@
               </div>
               <ul class="flex">
                 <li
-                  v-for="item in searchOutput"
+                  v-for="(item, index) in searchOutput"
                   v-if="searchOutput.length >= 1"
                 >
                   <div class="item-cover">
@@ -80,7 +80,7 @@
                       >{{item.original_title || item.original_name}}
                     </li>
                     <li class="item-language">
-                      <span class="item-info-title">Lingua originale: </span>
+                      <span class="item-info-title">Lingua: </span>
                       <img
                         :src="'img/16x16/' + item.original_language + '.png'"
                         :alt="item.original_language"
@@ -111,6 +111,10 @@
                       </span>
 
                       {{item.vote_average}}
+                    </li>
+                    <li>
+                      <span class="item-info-title">Overview: </span>
+                      {{overviewItemSlice(index)}}
                     </li>
                   </ul>
                 </li>
