@@ -70,19 +70,49 @@
                       :alt="item.title"
                     />
                   </div>
-                  <div class="search-item">
-                    <div>Titolo: {{item.title}}</div>
-                    <div>Titolo: {{item.name}}</div>
-                    <div>{{item.original_title}}</div>
-                    <div>{{item.original_name}}</div>
-                    <div class="item-language">
+                  <ul class="search-item">
+                    <li>
+                      <span class="item-info-title">Titolo: </span>{{item.title
+                      || item.name}}
+                    </li>
+                    <li>
+                      <span class="item-info-title">Titolo originale: </span
+                      >{{item.original_title || item.original_name}}
+                    </li>
+                    <li class="item-language">
+                      <span class="item-info-title">Lingua originale: </span>
                       <img
                         :src="'img/16x16/' + item.original_language + '.png'"
                         :alt="item.original_language"
                       />
-                    </div>
-                    <div>{{item.vote_average}}</div>
-                  </div>
+                    </li>
+                    <li>
+                      <span class="vote">
+                        <i
+                          class="fa-star"
+                          :class="{far : item.vote_average / 2 <= 0, fas : item.vote_average / 2 > 0}"
+                        ></i>
+                        <i
+                          class="fa-star"
+                          :class="{far : item.vote_average / 2 <= 1, fas : item.vote_average / 2 > 1}"
+                        ></i>
+                        <i
+                          class="fa-star"
+                          :class="{far : item.vote_average / 2 <= 2, fas : item.vote_average / 2 > 2}"
+                        ></i>
+                        <i
+                          class="fa-star"
+                          :class="{far : item.vote_average / 2 <= 3, fas : item.vote_average / 2 > 3}"
+                        ></i>
+                        <i
+                          class="fa-star"
+                          :class="{far : item.vote_average / 2 <= 4, fas : item.vote_average / 2 > 4}"
+                        ></i>
+                      </span>
+
+                      {{item.vote_average}}
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </div>

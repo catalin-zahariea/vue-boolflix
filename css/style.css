@@ -134,11 +134,11 @@ main {
   color: #fff;
 }
 
-.search-results li {
+.search-results .flex > li {
   /* Shape */
   width: 20%;
   height: 18em;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   /* Position */
   position: relative;
 }
@@ -162,6 +162,19 @@ main {
   /* Color */
   background-color: #141414;
   color: white;
+  /* Font */
+  font-size: 12px;
+}
+
+.search-results .item-info-title {
+  /* Font */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.search-results .vote .fas {
+  /* Color */
+  color: rgb(255, 238, 0);
 }
 
 .search-results .search-item .item-language {
