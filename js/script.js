@@ -1,11 +1,17 @@
 var app = new Vue({
   el: "#root",
   data: {
+    userLang: "it-IT",
+    userApiKey: "3a6caca7bf93b48956ef86189295e101",
     searchInput: "",
     searchOutput: [],
     searchNoResult: "",
+    genreArray: "",
   },
   methods: {
+    // ---
+    // MAIN SEARCH FUNCTION
+    // ---
     search() {
       // ---
       // Copying array of objects from API inside searchOutput array on click if searchInput is NOT empty.
@@ -17,8 +23,8 @@ var app = new Vue({
         axios
           .get("https://api.themoviedb.org/3/search/multi", {
             params: {
-              api_key: "3a6caca7bf93b48956ef86189295e101",
-              language: "it-IT",
+              api_key: this.userApiKey,
+              language: this.userLang,
               page: "1",
               include_adult: "false",
               query: this.searchInput,
@@ -56,9 +62,14 @@ var app = new Vue({
         this.searchNoResult = "";
       }
     },
+    // getGenre(objArray) {
+    //   objArray.forEach(element => {
 
-    searchCast() {},
-
+    //   });
+    // }
+    // ---
+    // Single item overview slice function.
+    // ---
     overviewItemSlice(index) {
       let overviewItemSliced = this.searchOutput[index].overview;
       overviewItemSliced = overviewItemSliced.slice(0, 70);
@@ -73,5 +84,35 @@ var app = new Vue({
       return overviewItemSliced;
     },
   },
-  mounted() {},
+  mounted() {
+    // ---
+    // Get movie genreArray from API
+    // ---
+    axios
+      .get("https://api.themoviedb.org/3/genre/movie/list", {
+        params: {
+          api_key: this.userApiKey,
+          language: this.userLang,
+        },
+      })
+      .then((response) => {
+        const res = response.data.genres;
+        this.getGenre(res);
+      });
+    // ---
+    // Get tv-show genreArray from API
+    // ---
+    axios
+      .get("https://api.themoviedb.org/3/genre/tv/list", {
+        params: {
+          api_key: this.userApiKey,
+          language: this.userLang,
+        },
+      })
+      .then((response) => {
+        const res = response.data.genres;
+        this.genreArray = res;
+        console.log(this.genreArray);
+      });
+  },
 });

@@ -34,6 +34,12 @@
               <img src="img/boolflix_logo.svg" alt="Boolflix Logo" />
             </div>
             <div class="header-search-function">
+              <select class="genre-select">
+                <option value="">Select a genre</option>
+                <option v-for="genre in genreArray" value="{{genre.id}}">
+                  {{genre.name}}
+                </option>
+              </select>
               <button @click="search"><i class="fas fa-search"></i></button>
               <span>
                 <label for="header-search"></label>
